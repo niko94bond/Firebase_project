@@ -1,0 +1,26 @@
+{
+  "name": "firebase",
+  "version": "1.0.0",
+  "description": "firebase",
+  "main": "script.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niko94bond/Firebase_project.git"
+  },
+  "keywords": [
+    "js",
+    "firebase"
+  ],
+  "author": "Nikolina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/niko94bond/Firebase_project/issues"
+  },
+  "homepage": "https://github.com/niko94bond/Firebase_project#readme",
+  "dependencies": {
+    "firebase": "^9.8.2"
+  }
+}
