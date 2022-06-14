@@ -2,6 +2,13 @@
 
 import renderLoginForm from "./renderLoginForm.js";
 import renderRegisterForm from "./renderRegisterForm.js";
+import renderHomePage from "./renderHomePage.js";
+import {
+    getAuth, 
+    signInWithEmailAndPassword,
+} from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
+
+const auth = getAuth;
 
 export default function(){
 
@@ -31,4 +38,24 @@ export default function(){
         contentContainer.innerHTML = "";
         renderRegisterForm();
     });
+
+    const formInDOM = document.getElementById('logIn-form');
+    formInDOM.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const email = document.getElementById('input-email').value;
+        const password = document.getElementById('input-password').value;
+
+        signInWithEmailAndPassword(auth,email, password).then((userCredentials)=>{
+            const user = userCredentials.user;
+            console.log(user);
+            document.getElementById("login-anchor").textContent = "Logout";
+        });
+    });
+
+
+
+
+
+
+
 }

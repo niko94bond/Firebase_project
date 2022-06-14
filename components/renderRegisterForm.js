@@ -1,3 +1,34 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyAM2XjABVZ8WNFtMLFifSaZN4e1-LnKBi8",
+  authDomain: "fir-project-c2298.firebaseapp.com",
+  projectId: "fir-project-c2298",
+  storageBucket: "fir-project-c2298.appspot.com",
+  messagingSenderId: "460513750070",
+  appId: "1:460513750070:web:a4b7b29d14830351dd3c97",
+  measurementId: "G-ZLNXHLZSZV",
+  databaseURL: 'https://arpfrontpl3-firebase-default-rtdb.europe-west1.firebasedatabase.app'
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+import{
+  getAuth,
+  createUserWithEmailAndPassword
+} from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js'
+
+const auth = getAuth();
+
+
 export default function(){
     const contentContainer = document.querySelector('.content');
 
@@ -29,10 +60,10 @@ export default function(){
     submitButtonRegister.textContent = "Register";
 
     //appending children to register form
-    form.appendChild(inputEmailRegister);
-    form.appendChild(firstInputPasswordRegister);
-    form.appendChild(secondInputPasswordRegister);
-    form.appendChild(submitButtonRegister);
+    formRegister.appendChild(inputEmailRegister);
+    formRegister.appendChild(firstInputPasswordRegister);
+    formRegister.appendChild(secondInputPasswordRegister);
+    formRegister.appendChild(submitButtonRegister);
     
     //appending the form to content conteiner
     contentContainer.appendChild(formRegister);
@@ -42,15 +73,22 @@ export default function(){
       e.preventDefault();
       const email = document.getElementById("input-email-register").value;
       const password1 = document.getElementById(
-        "first-input-password-register"
+        "first-Input-Password-Register"
       ).value;
       const password2 = document.getElementById(
         "second-input-password-register"
       ).value;
+      const password = password1;
       if (password1 === password2 && email.includes("@")) {
         console.log(email, password1, password2);
   
         //firebase auth
+        createUserWithEmailAndPassword (auth, email, password).then ((userCredentials)=>{
+          const user = userCredentials.user;
+          console.log(user)
+
+          
+        });
       }
     });
   }

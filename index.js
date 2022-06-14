@@ -1,8 +1,8 @@
 'use strict'
 //Importing components
 import renderHomePage from "./components/renderHomePage.js";
-import renderAboutPage from "./components/renderAboutPage.js";
 import renderTodoPage from "./components/renderTodoPage.js";
+import renderAboutPage from "./components/renderAboutPage.js";
 import renderLoginPage from "./components/renderLoginPage.js";
 
 //Selecting the most important elements of the page
@@ -16,7 +16,7 @@ const loginButton = document.getElementById('login-anchor');
 
 //Selecting the content section
 const contentSection = document.querySelector('.content');
-renderHomePage()
+const string = "123@123.pl";
 
 // Adding event Lesteners to the navbar buttons
 
