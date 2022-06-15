@@ -1,32 +1,7 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
+import{createUserWithEmailAndPassword} from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js';
+import firebase from '../firebaseConfig.js'
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyAM2XjABVZ8WNFtMLFifSaZN4e1-LnKBi8",
-  authDomain: "fir-project-c2298.firebaseapp.com",
-  projectId: "fir-project-c2298",
-  storageBucket: "fir-project-c2298.appspot.com",
-  messagingSenderId: "460513750070",
-  appId: "1:460513750070:web:a4b7b29d14830351dd3c97",
-  measurementId: "G-ZLNXHLZSZV",
-  databaseURL: 'https://arpfrontpl3-firebase-default-rtdb.europe-west1.firebasedatabase.app'
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-
-import{
-  getAuth,
-  createUserWithEmailAndPassword
-} from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js'
-
-const auth = getAuth();
+const auth = firebase.auth;
 
 
 export default function(){

@@ -3,12 +3,10 @@
 import renderLoginForm from "./renderLoginForm.js";
 import renderRegisterForm from "./renderRegisterForm.js";
 import renderHomePage from "./renderHomePage.js";
-import {
-    getAuth, 
-    signInWithEmailAndPassword,
-} from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
+import {signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
 
-const auth = getAuth;
+import firebase from "./renderHomePage.js";
+const auth = firebase.auth;
 
 export default function(){
 
@@ -47,8 +45,10 @@ export default function(){
 
         signInWithEmailAndPassword(auth,email, password).then((userCredentials)=>{
             const user = userCredentials.user;
+            console.log(user.uid)
             console.log(user);
             document.getElementById("login-anchor").textContent = "Logout";
+            renderHomePage();
         });
     });
 
